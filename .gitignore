@@ -1,0 +1,40 @@
+# ============================================
+# 创伤可视化系统 — 统一 .gitignore
+# ============================================
+
+# ── 前端 ──
+frontend/node_modules/
+frontend/dist/
+*.rar
+
+# ── 后端 ──
+backend/target/
+backend/uploads/
+backend/temp-imports/
+backend/*.log
+backend/logs/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# ── 预测服务 ──
+prediction/__pycache__/
+prediction/**/__pycache__/
+prediction/venv/
+prediction/.venv/
+prediction/*.pyc
+prediction/models/*.pkl
+prediction/.env
+
+# ── IDE ──
+.idea/
+.vscode/
+*.iml
+._*
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+
+# ── 环境变量 ──
+.env
