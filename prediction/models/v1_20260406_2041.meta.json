@@ -1,0 +1,18 @@
+{
+  "version": "v1_20260406_2041",
+  "version_num": 1,
+  "trained_count": 2131,
+  "delta": 2131,
+  "district_count": 123,
+  "created_at": "2026-04-06T20:41:17.564164",
+  "metrics": {
+    "top1_accuracy": 0.4744,
+    "sample_count": 2131
+  },
+  "features": [
+    "time_period",
+    "season",
+    "district",
+    "injury_cause_category"
+  ]
+}

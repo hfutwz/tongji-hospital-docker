@@ -1,0 +1,23 @@
+{
+  "version": "v2_20260406_2117_incr",
+  "version_num": 2,
+  "trained_count": 1496,
+  "sample_count": 1496,
+  "delta": 5,
+  "district_count": 235,
+  "created_at": "2026-04-06T21:17:13.585161",
+  "metrics": {
+    "top1_accuracy": null,
+    "sample_count": 5,
+    "note": "新增样本过少，跳过评估"
+  },
+  "features": [
+    "time_period",
+    "season",
+    "month",
+    "year_offset",
+    "district",
+    "injury_cause_category"
+  ],
+  "incremental": true
+}
