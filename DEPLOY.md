@@ -25,15 +25,12 @@ cd tongji-hospital-docker
 docker compose up -d
 ```
 
+> 若 git clone 失败：浏览器打开 https://github.com/hfutwz/tongji-hospital-docker → Code → Download ZIP → 解压 → 在解压目录打开 Git Bash 执行 `docker compose up -d`。
+
 ```bash
-# 验证
 curl http://localhost/
 curl http://localhost:9090/api/patient/list
 curl http://localhost:8000/
-```
-
-```bash
-# 训练预测模型
 curl -X POST http://localhost:8000/api/model/train
 ```
 
@@ -60,15 +57,12 @@ cd tongji-hospital-docker
 docker compose up -d
 ```
 
+> 若 git clone 失败：浏览器打开 https://github.com/hfutwz/tongji-hospital-docker → Code → Download ZIP → 解压 → 终端进入解压目录执行 `docker compose up -d`。
+
 ```bash
-# 验证
 curl http://localhost/
 curl http://localhost:9090/api/patient/list
 curl http://localhost:8000/
-```
-
-```bash
-# 训练预测模型
 curl -X POST http://localhost:8000/api/model/train
 ```
 
@@ -104,15 +98,12 @@ cd tongji-hospital-docker
 docker compose up -d
 ```
 
+> 若 git clone 失败：浏览器打开 https://github.com/hfutwz/tongji-hospital-docker → Code → Download ZIP → 解压 → 终端进入解压目录执行 `docker compose up -d`。
+
 ```bash
-# 验证
 curl http://localhost/
 curl http://localhost:9090/api/patient/list
 curl http://localhost:8000/
-```
-
-```bash
-# 训练预测模型
 curl -X POST http://localhost:8000/api/model/train
 ```
 
