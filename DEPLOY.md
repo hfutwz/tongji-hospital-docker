@@ -11,7 +11,6 @@
 3. 安装 Git：https://git-scm.com/download/win
 
 ```powershell
-# 验证
 docker --version
 git --version
 ```
@@ -21,12 +20,6 @@ git --version
 ```powershell
 git clone https://github.com/hfutwz/tongji-hospital-docker.git
 cd tongji-hospital-docker
-copy .env.example .env
-```
-
-编辑 `.env`，填写 `MYSQL_ROOT_PASSWORD` 和 `TENCENT_MAP_KEY`（暂无 Key 填 `placeholder`）。
-
-```powershell
 docker compose up -d
 ```
 
@@ -54,7 +47,6 @@ curl -X POST http://localhost:8000/api/model/train
 2. Intel：https://docs.docker.com/desktop/install/mac-install/
 
 ```bash
-# 验证
 docker --version
 ```
 
@@ -63,12 +55,6 @@ docker --version
 ```bash
 git clone https://github.com/hfutwz/tongji-hospital-docker.git
 cd tongji-hospital-docker
-cp .env.example .env
-```
-
-编辑 `.env`，填写 `MYSQL_ROOT_PASSWORD` 和 `TENCENT_MAP_KEY`（暂无 Key 填 `placeholder`）。
-
-```bash
 docker compose up -d
 ```
 
@@ -105,7 +91,6 @@ sudo usermod -aG docker $USER
 ```
 
 ```bash
-# 验证
 docker --version
 ```
 
@@ -114,12 +99,6 @@ docker --version
 ```bash
 git clone https://github.com/hfutwz/tongji-hospital-docker.git
 cd tongji-hospital-docker
-cp .env.example .env
-```
-
-编辑 `.env`，填写 `MYSQL_ROOT_PASSWORD` 和 `TENCENT_MAP_KEY`（暂无 Key 填 `placeholder`）。
-
-```bash
 docker compose up -d
 ```
 

@@ -92,7 +92,7 @@ services:
       SPRING_REDIS_HOST: redis
       SPRING_RABBITMQ_HOST: rabbitmq
       PREDICTION_URL: http://predict:8000
-      AMAP_API_KEY: ${TENCENT_MAP_KEY}
+      AMAP_API_KEY: ${TENCENT_MAP_KEY:-placeholder}
       WAIT_HOSTS: mysql:3306,redis:6379,rabbitmq:5672
       WAIT_HOSTS_TIMEOUT: 120
       WAIT_SLEEP_INTERVAL: 5
