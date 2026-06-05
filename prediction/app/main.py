@@ -24,6 +24,17 @@ app.add_middleware(
 app.include_router(router)
 
 
+@app.on_event("startup")
+def on_startup():
+    """启动时自动加载模型并同步版本号"""
+    from app.api.prediction import reload_model
+    try:
+        reload_model()
+        print(f"[startup] 模型加载成功")
+    except Exception as e:
+        print(f"[startup] 模型加载失败（服务仍可启动，需手动训练）: {e}")
+
+
 @app.get("/", include_in_schema=False)
 def root():
     return {"service": "trauma-prediction", "docs": "/docs"}
