@@ -6,31 +6,33 @@
 
 ### 安装 Docker Desktop
 
-1. 下载安装：https://docs.docker.com/desktop/install/windows-install/
+1. 下载安装 Docker Desktop：https://docs.docker.com/desktop/install/windows-install/
 2. 安装后重启电脑
 3. 安装 Git：https://git-scm.com/download/win
 
-```powershell
+> 安装 Git 后，右键桌面 → **Git Bash Here**，后续所有命令在 Git Bash 中执行（不要用 cmd 或 PowerShell）。
+
+```bash
 docker --version
 git --version
 ```
 
 ### 部署
 
-```powershell
+```bash
 git clone https://github.com/hfutwz/tongji-hospital-docker.git
 cd tongji-hospital-docker
 docker compose up -d
 ```
 
-```powershell
+```bash
 # 验证
 curl http://localhost/
 curl http://localhost:9090/api/patient/list
 curl http://localhost:8000/
 ```
 
-```powershell
+```bash
 # 训练预测模型
 curl -X POST http://localhost:8000/api/model/train
 ```
