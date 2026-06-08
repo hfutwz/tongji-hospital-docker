@@ -7,6 +7,8 @@
 ### 安装 Docker Desktop
 
 1. 下载安装 Docker Desktop：https://docs.docker.com/desktop/install/windows-install/
+> ![img.png](img.png)
+> 若有问题，可参考：https://blog.csdn.net/xin_yao_xin/article/details/159463946?ops_request_misc=elastic_search_misc&request_id=a5ccc39d0a38a84ea93100aa86156f21&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-159463946-null-null.142^v102^pc_search_result_base2&utm_term=docker%20desktop&spm=1018.2226.3001.4187
 2. 安装后重启电脑
 3. 安装 Git：https://git-scm.com/download/win
 

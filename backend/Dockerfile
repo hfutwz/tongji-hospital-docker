@@ -8,7 +8,8 @@ RUN mvn dependency:go-offline -B
 COPY src ./src
 RUN mvn clean package -DskipTests -B
 
-FROM openjdk:8-jre-alpine
+# 运行阶段：使用 Azul Zulu OpenJDK 8 Alpine
+FROM azul/zulu-openjdk-alpine:8
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 # 等待 MySQL/Redis 就绪的工具
