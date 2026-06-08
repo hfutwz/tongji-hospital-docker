@@ -86,7 +86,7 @@ services:
     ports:
       - "9091:9090"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/healthineersvisualization?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/healthineersvisualization?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root123}
       SPRING_REDIS_HOST: redis
