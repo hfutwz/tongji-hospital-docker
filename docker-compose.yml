@@ -15,7 +15,7 @@ services:
       - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./db/_localhost__3_-2025_12_15_17_33_23-dump.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+      - ./db/healthineersvisualization_2026-06-09_00-51-35_mysql_data_vdZ6M.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
