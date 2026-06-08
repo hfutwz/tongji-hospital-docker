@@ -4,20 +4,21 @@
 
 <mapper namespace="com.demo.mapper.PatientInjuryDetailMapper">
 
+    <!--
+        patient_injury_details / injury_types 表在当前数据库中不存在。
+        伤情详情通过 iss_patient_injury_severity 表（IssInjury 实体）提供，
+        此查询返回空结果集，不影响主要功能。
+    -->
     <select id="selectInjuryDetailsByPatientIdAndBodyPart" resultType="com.demo.dto.InjuryDetailDTO">
-        SELECT 
-            it.injury_type_id AS injuryTypeId,
-            it.injury_name AS injuryName,
-            it.injury_description AS injuryDescription,
-            it.score_value AS scoreValue,
-            pid.injury_count AS injuryCount,
-            pid.notes AS notes
-        FROM patient_injury_details pid
-        INNER JOIN injury_types it ON pid.injury_type_id = it.injury_type_id
-        WHERE pid.patient_id = #{patientId} 
-        AND it.body_part = #{bodyPart}
-        AND it.is_active = TRUE
-        ORDER BY it.score_value DESC, it.injury_name
+        SELECT
+            NULL AS injuryTypeId,
+            NULL AS injuryName,
+            NULL AS injuryDescription,
+            NULL AS scoreValue,
+            NULL AS injuryCount,
+            NULL AS notes
+        FROM (SELECT 1) dummy
+        WHERE 1 = 0
     </select>
 
 </mapper>

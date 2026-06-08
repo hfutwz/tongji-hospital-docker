@@ -22,7 +22,7 @@
                 END as time_period,
                 MONTH(ir.admission_date) as month,
                 COUNT(*) as patient_count
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
             <if test="year != null">
@@ -94,8 +94,8 @@
         SELECT 
             ir.injury_location as injury_site,
             COUNT(*) as patient_count,
-            ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM InjuryRecord WHERE admission_date BETWEEN #{startDate} AND #{endDate}), 2) as percentage
-        FROM InjuryRecord ir
+            ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM injuryrecord WHERE admission_date BETWEEN #{startDate} AND #{endDate}), 2) as percentage
+        FROM injuryrecord ir
         WHERE ir.admission_date BETWEEN #{startDate} AND #{endDate}
         AND ir.injury_location IS NOT NULL AND ir.injury_location != ''
         <if test="season != null">
@@ -121,8 +121,8 @@
                 ELSE '未知'
             END as score_range,
             COUNT(*) as patient_count,
-            ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM InjuryRecord WHERE admission_date BETWEEN #{startDate} AND #{endDate}), 2) as percentage
-        FROM InjuryRecord ir
+            ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM injuryrecord WHERE admission_date BETWEEN #{startDate} AND #{endDate}), 2) as percentage
+        FROM injuryrecord ir
         INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
         WHERE ir.admission_date BETWEEN #{startDate} AND #{endDate}
         GROUP BY 
@@ -150,8 +150,8 @@
                 ELSE '未知'
             END as body_region,
             COUNT(*) as injury_count,
-            ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM InjuryRecord WHERE admission_date BETWEEN #{startDate} AND #{endDate}), 2) as percentage
-        FROM InjuryRecord ir
+            ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM injuryrecord WHERE admission_date BETWEEN #{startDate} AND #{endDate}), 2) as percentage
+        FROM injuryrecord ir
         INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
         WHERE ir.admission_date BETWEEN #{startDate} AND #{endDate}
         GROUP BY 
@@ -188,7 +188,7 @@
                     ELSE 
                         CAST(iss.head_neck AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -266,7 +266,7 @@
                     ELSE 
                         CAST(iss.face AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -344,7 +344,7 @@
                     ELSE 
                         CAST(iss.chest AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -422,7 +422,7 @@
                     ELSE 
                         CAST(iss.abdomen AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -500,7 +500,7 @@
                     ELSE 
                         CAST(iss.limbs AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -578,7 +578,7 @@
                     ELSE 
                         CAST(iss.body AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -647,7 +647,7 @@
             it.admission_time as admissionTime,
             it.leave_surgery_date as leaveSurgeryDate,
             it.leave_surgery_time as leaveSurgeryTime
-        FROM InjuryRecord ir
+        FROM injuryrecord ir
         INNER JOIN interventiontime it ON ir.patient_id = it.patient_id
         WHERE ir.admission_date BETWEEN #{startDate} AND #{endDate}
     </select>
@@ -657,8 +657,8 @@
         SELECT 
             it.patient_destination as destination,
             COUNT(*) as patient_count,
-            ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM InjuryRecord WHERE admission_date BETWEEN #{startDate} AND #{endDate}), 2) as percentage
-        FROM InjuryRecord ir
+            ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM injuryrecord WHERE admission_date BETWEEN #{startDate} AND #{endDate}), 2) as percentage
+        FROM injuryrecord ir
         INNER JOIN interventiontime it ON ir.patient_id = it.patient_id
         WHERE ir.admission_date BETWEEN #{startDate} AND #{endDate}
         AND it.patient_destination IS NOT NULL AND it.patient_destination != ''
@@ -673,7 +673,7 @@
             MONTH(ir.admission_date) as month,
             ir.injury_cause_category,
             COUNT(*) as patient_count
-        FROM InjuryRecord ir
+        FROM injuryrecord ir
         INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
         WHERE 1=1
         <if test="year != null">
@@ -724,7 +724,7 @@
             ir.season,
             ir.time_period,
             i.admission_time
-        FROM InjuryRecord ir
+        FROM injuryrecord ir
         INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
         INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
         WHERE 1=1
@@ -905,7 +905,7 @@
                     ELSE 
                         CAST(iss.head_neck AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -980,7 +980,7 @@
                     ELSE 
                         CAST(iss.face AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -1055,7 +1055,7 @@
                     ELSE 
                         CAST(iss.chest AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -1130,7 +1130,7 @@
                     ELSE 
                         CAST(iss.abdomen AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -1205,7 +1205,7 @@
                     ELSE 
                         CAST(iss.limbs AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -1280,7 +1280,7 @@
                     ELSE 
                         CAST(iss.body AS DECIMAL(3,1))
                 END as severity_value
-            FROM InjuryRecord ir
+            FROM injuryrecord ir
             INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
             INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
             WHERE 1=1
@@ -1585,7 +1585,7 @@
     <!-- 与 getISSDistributionData 保持一致的查询逻辑和表别名 -->
     <select id="getISSSegmentPatientIds" resultType="java.lang.Integer">
         SELECT DISTINCT ir.patient_id
-        FROM InjuryRecord ir
+        FROM injuryrecord ir
         INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
         INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
         WHERE 1=1
@@ -1745,7 +1745,7 @@
     <!-- 获取身体部位患者ID列表 -->
     <select id="getBodyPartPatientIds" resultType="java.lang.Integer">
         SELECT DISTINCT ir.patient_id
-        FROM InjuryRecord ir
+        FROM injuryrecord ir
         INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
         INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
         WHERE 1=1
@@ -1867,7 +1867,7 @@
     <!-- 获取身体区域+严重程度患者ID列表 -->
     <select id="getBodyRegionSeverityPatientIds" resultType="java.lang.Integer">
         SELECT DISTINCT ir.patient_id
-        FROM InjuryRecord ir
+        FROM injuryrecord ir
         INNER JOIN iss_patient_injury_severity iss ON ir.patient_id = iss.patient_id
         INNER JOIN interventiontime i ON ir.patient_id = i.patient_id
         WHERE 1=1
